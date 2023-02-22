@@ -165,12 +165,27 @@ createApp({
             ],
 
             contactIndex: 0,
+            newMex: '',
         }
     },
 
     methods: {
         setCurrentIndex(index){
             this.contactIndex = index
+        },
+
+        receivedNewMex(){
+            this.contacts[this.contactIndex].messages.push({date:'', message:'ok', status:'received'})
+        },
+
+        addMex(){
+            this.contacts[this.contactIndex].messages.push({date:'', message:this.newMex, status:'sent'}),
+            this.newMex = ''
+            setTimeout(this.receivedNewMex, 1000)
+        },
+
+        mounted(){
+            setTimeout(this.receivedNewMex, 1000)
         }
     }
 }).mount('#app')

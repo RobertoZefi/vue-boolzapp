@@ -105,6 +105,10 @@ body{
     border-bottom: 1px solid #EAEAEA;
 }
 
+.contact:hover{
+    background-color: var(--grey);
+}
+
 .contact__user{
     margin-left: 21px;
 }
@@ -122,8 +126,8 @@ body{
 }
 
 .contact__user .last-access{
-    font-size: 15px;
-    color: lightgray;
+    font-size: 14px;
+    color: #BFB8BC;
 }
 
 .contact__last-access{
