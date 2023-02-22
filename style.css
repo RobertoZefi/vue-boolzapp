@@ -16,6 +16,8 @@ body{
     --dark-gray: #6B7376;
 }
 
+/*************************/
+
 .container{
     min-height: 960px;
     max-width: 1600px;
@@ -63,6 +65,8 @@ body{
 }
 
 
+/*************************/
+
 
 .activate-message{
     height: 84px;
@@ -92,6 +96,8 @@ body{
     background-color: #FAFAFA;
 }
 
+
+/*************************/
 
 
 .contact{
@@ -143,4 +149,38 @@ body{
 .write-message .icon{
     font-size: 25px;
     color: var(--dark-gray);
+}
+
+
+/*************************/
+
+
+.message{
+    width: 325px;
+    border-radius: 10px;
+    padding: 18px;
+    position: relative;
+}
+
+.my-message{
+    background-color: #D5F9BA;
+    align-self: flex-end;
+    margin-right: 104px;
+}
+
+.contact-message{
+    background-color: white;
+    margin-left: 104px;
+}
+
+.main-chat .message:first-child{
+    margin-top: 58px;
+}
+
+.ora-mex{
+    position: absolute;
+    right: 5px;
+    bottom: 3px;
+    font-size: 10px;
+    color: var(--grey-icon);
 }
