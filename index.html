@@ -45,7 +45,8 @@
                 </div>
 
                 <div class="contact align-items-center d-flex justify-content-between"
-                v-for="(contact, index) in contacts">
+                v-for="(contact, index) in contacts"
+                @click="setCurrentIndex(index)">
                     <div class="contact__user d-flex">
                         <img :src="contact.avatar" alt="">
                         <div class="ms-3">
@@ -63,10 +64,11 @@
 
             <div class="col col-chat d-flex flex-column">
                 <div class="card-header d-flex align-items-center justify-content-between">
-                    <div class="card-header__user d-flex align-items-center">
-                        <img src="./img/avatar_1.webp" alt="">
+                    <div class="card-header__user d-flex align-items-center"
+                    >
+                        <img :src="contacts[contactIndex].avatar" alt="">
                         <div class="ms-3">
-                            <p class="mb-0 fw-semibold">Michele</p>
+                            <p class="mb-0 fw-semibold">{{contacts[contactIndex].name}}</p>
                             <p class="mb-0 fw-semibold card-header__access">Ultimo accesso oggi alle 12:00</p>
                         </div>
                     </div>
@@ -78,16 +80,12 @@
                 </div>
 
                 <div class="main-chat flex-grow-1 d-flex flex-column">
-                    <div class="message my-message">
-                        <p class="mb-0">text</p>
-                        <p class="mb-0 ora-mex">00:00</p>
+                    <div class="message"
+                    v-for="(mex, index) in contacts[contactIndex].messages"
+                    :class="mex.status === 'sent' ? 'my-message' : 'contact-message'">
+                        <p class="mb-0">{{mex.message}}</p>
+                        <p class="mb-0 ora-mex">{{mex.date.split(' ')[1]}}</p>
                     </div>
-
-                    <div class="message contact-message">
-                        <p class="mb-0">text</p>
-                        <p class="mb-0 ora-mex">00:00</p>
-                    </div>
-        
                 </div>
 
                 <div class="write-message d-flex align-items-center gap-4 px-4 py-2">

@@ -162,7 +162,15 @@ createApp({
                     status: 'received'
                     }
                 ],}
-            ]
+            ],
+
+            contactIndex: 0,
+        }
+    },
+
+    methods: {
+        setCurrentIndex(index){
+            this.contactIndex = index
         }
     }
 }).mount('#app')

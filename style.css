@@ -160,6 +160,7 @@ body{
     border-radius: 10px;
     padding: 18px;
     position: relative;
+    margin-bottom: 10px;
 }
 
 .my-message{
