@@ -167,6 +167,7 @@ createApp({
             contactIndex: 0,
             newMex: '',
             lastIndex: 0,
+            searchValue: '',
         }
     },
 
@@ -190,7 +191,27 @@ createApp({
         },
 
         setTime(mex){
-            mex.date.split(' ')[1]
+            let dateSplit = mex.date.split(' ')[1].split(':')
+            return dateSplit[0]
+        }
+    },
+
+    computed:{
+        searchName(){
+            if(this.searchValue.length > 0){
+                
+                //return this.contacts.filter((contact) => contact.name.includes(this.searchValue))
+                
+                for (let key in this.contacts){
+                    let contact = this.contacts[key]
+                    let name = contact.name
+                    let nameFiltred = contact.filter(name)
+                    if (nameFiltred.includes(this.searchValue)){
+                        return this.contacts.name
+                    }
+                }
+            }
+            return this.contacts
         }
     }
 }).mount('#app')
