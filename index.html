@@ -46,7 +46,8 @@
 
                 <div class="contact align-items-center d-flex justify-content-between"
                 v-for="(contact, index) in contacts"
-                @click="setCurrentIndex(index)">
+                @click="setCurrentIndex(index)"
+                :class="(index === contactIndex) ? 'active' : ''">
                     <div class="contact__user d-flex">
                         <img :src="contact.avatar" alt="">
                         <div class="ms-3">
@@ -62,7 +63,7 @@
 
             </div>
 
-            <div class="col col-chat d-flex flex-column">
+            <div class="col col-chat d-flex flex-column flex-grow-1">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <div class="card-header__user d-flex align-items-center"
                     >
@@ -84,7 +85,7 @@
                     v-for="(mex, index) in contacts[contactIndex].messages"
                     :class="mex.status === 'sent' ? 'my-message' : 'contact-message'">
                         <p class="mb-0">{{mex.message}}</p>
-                        <p class="mb-0 ora-mex">{{mex.date.split(' ')[1]}}</p>
+                        <p class="mb-0 ora-mex">{{setTime(mex)}}</p>
                     </div>
                 </div>
 

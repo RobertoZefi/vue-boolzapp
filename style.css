@@ -1,6 +1,4 @@
 body{
-    height: 100vh;
-    width: 100%;
     background: linear-gradient(
         to top,
         #D7DBD6 85%,
@@ -16,18 +14,22 @@ body{
     --dark-gray: #6B7376;
 }
 
+#app{
+    height: 100vh;
+    padding: 65px;
+}
+
 /*************************/
 
 .container{
-    min-height: 960px;
-    max-width: 1600px;
+    max-width: 1700px;
     display: flex;
     padding: 0;
-    margin-top: 50px;
+    height: 100%;
 }
 
 .col-user{
-    width: 560px;
+    width: 600px;
     background-color: white;
 }
 
@@ -105,7 +107,7 @@ body{
     border-bottom: 1px solid #EAEAEA;
 }
 
-.contact:hover{
+.contact:hover, .contact.active{
     background-color: var(--grey);
 }
 

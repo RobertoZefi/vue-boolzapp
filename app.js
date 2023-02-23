@@ -166,6 +166,7 @@ createApp({
 
             contactIndex: 0,
             newMex: '',
+            lastIndex: 0,
         }
     },
 
@@ -186,6 +187,10 @@ createApp({
 
         mounted(){
             setTimeout(this.receivedNewMex, 1000)
+        },
+
+        setTime(mex){
+            mex.date.split(' ')[1]
         }
     }
 }).mount('#app')
