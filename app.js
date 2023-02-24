@@ -168,6 +168,7 @@ createApp({
             newMex: '',
             lastIndex: 0,
             searchValue: '',
+            numberMessageToRemove: 1,
         }
     },
 
@@ -190,28 +191,49 @@ createApp({
             setTimeout(this.receivedNewMex, 1000)
         },
 
-        setTime(mex){
-            let dateSplit = mex.date.split(' ')[1].split(':')
-            return dateSplit[0]
-        }
+        setTime(date){
+            let dateSplit = date.split(' ')[1].split(':')
+            let hour = `${dateSplit[0]}:${dateSplit[1]}`
+            return hour
+        },
+
+        removeMessage(messageIndex){
+            this.contacts.splice(messageIndex, this.numberMessageToRemove)
+        },
+
     },
 
     computed:{
         searchName(){
             if(this.searchValue.length > 0){
-                
+                //let newArray = this.contacts.filter(function(contact) {console.log(contact); return true})
                 //return this.contacts.filter((contact) => contact.name.includes(this.searchValue))
                 
-                for (let key in this.contacts){
+                let newArray = []
+
+                for(let key in this.contacts){
                     let contact = this.contacts[key]
                     let name = contact.name
-                    let nameFiltred = contact.filter(name)
-                    if (nameFiltred.includes(this.searchValue)){
-                        return this.contacts.name
+            
+
+                    //let firstCharValue = searchValue.charAt(0)
+                    //let firstCharName = name.charAt(0)
+                    
+                    
+                    if(name.toLowerCase().includes(this.searchValue)){
+                        newArray.push(contact)
                     }
+
+                    
                 }
+                return newArray
             }
             return this.contacts
-        }
+        },
+
+        lastItem() {
+            //return this.contacts.this.messages[this.contactIndex.length - 1]
+            return this.searchName[this.contactIndex].messages?.length - 1
+        },
     }
 }).mount('#app')

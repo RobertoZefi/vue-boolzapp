@@ -6,6 +6,7 @@ body{
         #009688 100%
     );
     overflow: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
 :root{
@@ -71,7 +72,7 @@ body{
 
 
 .activate-message{
-    height: 84px;
+    height: 90px;
     background-color: #8EDAFC;
 }
 
@@ -98,12 +99,8 @@ body{
     background-color: #FAFAFA;
 }
 
-
-/*************************/
-
-
 .contact{
-    height: 83px;
+    height: 90px;
     border-bottom: 1px solid #EAEAEA;
 }
 
@@ -190,4 +187,15 @@ body{
     bottom: 3px;
     font-size: 10px;
     color: var(--grey-icon);
+}
+
+.dropdown.option{
+    position: absolute;
+    top: 7px;
+    right: 10px;
+}
+
+.arrow{
+    color: var(--grey-icon);
+    font-size: 14px;
 }
